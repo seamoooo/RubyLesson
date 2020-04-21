@@ -65,3 +65,17 @@ end
 
 greetings = %w(hello aloha)
 greet_twice 'Ruby', *greetings
+
+def block_sample
+  puts 'sutand up'
+  yield if block_given?　#nilの場合エラーになるので、if block_given?つきで呼び出す
+  puts 'sit down'
+end
+
+#block_sampleメソッド呼び出しで、ブロックつきで呼び出すと、
+#yieldが実行される際に、ブロック内が実装される
+block_sample do
+  puts 'work'
+end
+
+#next,breakとうのジャンプ構文を使用すると呼び出し元に変える
