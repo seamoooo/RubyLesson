@@ -66,16 +66,60 @@ end
 greetings = %w(hello aloha)
 greet_twice 'Ruby', *greetings
 
-def block_sample
-  puts 'sutand up'
-  yield if block_given?　#nilの場合エラーになるので、if block_given?つきで呼び出す
+def block_sample 
+  puts 'hoge'
+  yield
   puts 'sit down'
 end
 
-#block_sampleメソッド呼び出しで、ブロックつきで呼び出すと、
-#yieldが実行される際に、ブロック内が実装される
 block_sample do
   puts 'work'
 end
 
+#block_sampleメソッド呼び出しで、ブロックつきで呼び出すと、
+#yieldが実行される際に、ブロック内が実装される
+
 #next,breakとうのジャンプ構文を使用すると呼び出し元に変える
+
+def with_current_time 
+  yield Time.now
+end
+
+with_current_time do |now|
+  puts now.year
+end
+#ブロックはメソッドににて、引数を扱うことになる。
+#差は寛容さ　呼び出し時に渡された引数の数がブロックの仮引数と異なる場合にエラーは出ない
+#デフォルトをブロックでも使用することができる。
+def with_current_time 
+  yield Time.now
+end
+  
+with_current_time do |now, something|
+  puts something.inspect
+end
+
+#yeidを用いて実行することができるが、受けっとったその場でじっこうせずに
+#その他のメソッドに引数として渡すことができる
+def block_sample(&block)
+    puts 'hoge'
+    block.call if block
+    puts 'sit down'
+end
+
+block_sample do
+  puts 'work'
+end
+
+#上記ができるとブロックを変数に格納して渡すことができますよ
+people = %w(Alice Bob jim)
+block = Proc.new { |name| puts name }
+
+people.each &block
+
+#::でメソッド呼び出しを使用することもできる
+puts Time::now
+#エイリアスをつけて、既存メゾットを別名使用することができる
+#使うことはあるのか。。。
+alias greet puts
+greet 'hoge'
