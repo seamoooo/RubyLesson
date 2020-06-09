@@ -1,5 +1,6 @@
 #nill,falseは偽になる。
 #以下がnilがfalseであるという特性を活かしたコード
+#and,orの優先順位は低い
 find_data = nil
 
 data = find_data
