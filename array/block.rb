@@ -12,4 +12,15 @@ demensions = [
   [50,60],
 ]
 
-q
+areas = []
+
+dimensions.each do |length,with|
+  areas << length * with
+end
+
+puts areas
+
+#配列の要素を受け取るブロック引数を()で囲むと、配列の要素を別々の引数として受け取ることができる
+demensions.each_with_index do |(index,width),i|
+  puts "length: #{index}, width: #{width}, i: #{i}"
+end
