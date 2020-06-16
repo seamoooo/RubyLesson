@@ -10,4 +10,4 @@ puts hoge
 #ブロックの中では、ブロック引数に対してメソッドを1回呼び出す以外の処理がないこと
 
 range = 1..100
-puts range.include?(19)
+puts range.include?(19) 
