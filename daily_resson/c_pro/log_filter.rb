@@ -1,5 +1,5 @@
 # N = gets.to_s
-# G = gets.to_s
+# G = gets.sttip!
 # ary = readlines.map(&:to_i)
 
 
