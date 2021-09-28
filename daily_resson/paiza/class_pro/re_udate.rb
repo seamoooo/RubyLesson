@@ -23,8 +23,6 @@ class Student
   end
 end
 
-pp student
-
 student.each_with_index do |val, key|
   student = Student.new(name:val[0], old:val[1], date:val[2], area:val[3])
 
