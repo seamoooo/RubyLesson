@@ -20,10 +20,10 @@ puts num.sort
 n = gets.to_i
 
 num = []
-n.times { num << gets.split(' ').map(&:to_i) }
+n.times { num << gets.split(' ').map(&:to_i) 
 
-n.sort!.reverse!
-
-n.each do |fruit|
-  puts fruit.join(' ')
+num.sort do |a, b|
+  [a[0], b[1]] <=> [a[0], a[1]]
 end
+
+puts num
