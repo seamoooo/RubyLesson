@@ -5,7 +5,7 @@ bord.each_with_index do |row, y|
   row.each_index do |x|
     if x == 0 || row[x - 1] == "#"
       puts y.to_s + ' ' + to.to_s if x == w -1 || row[x - 1] == "#"
-     end
+    end
   end
 end
 
@@ -19,6 +19,6 @@ bord.each_with_index do |row, y|
   row.each_index do |x|
     if x == 0 || row[x - 1] == "#"
       puts y.to_s + ' ' + x.to_s if x == w - 1 || row[x + 1] == '#'
-     end
+    end
   end
 end
