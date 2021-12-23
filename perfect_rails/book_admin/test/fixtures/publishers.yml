@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  adress: MyText
+  address: MyText
 
 two:
   name: MyString
-  adress: MyText
+  address: MyText
