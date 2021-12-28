@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :tasks
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get "/book/:id" => "book#show"
+  get "/books/:id" => "books#show"
+  delete "/books/:id" => "books#destroy"
 end
