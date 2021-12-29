@@ -4,13 +4,16 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :destroy]
 
   def show
-    # pricate メソッドに以降
+    # private メソッドに以降
     # @book = Book.fund(params[:id]))
 
     respond_to do |format|
       format.html
-      format.json
+      format.json { render json: @book}
     end
+
+    # render :show
+  end
 
   def destroy
     @book.destroy
