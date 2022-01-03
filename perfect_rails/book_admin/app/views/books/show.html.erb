@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <title>Document</title>
-</head>
+<h1>書籍情報</h1>
 
-<body>
-  <h1>書籍情報</h1>
-  <%= @book.price %>
-</body>
+<h2>書籍名</h2>
+<%= @book.name %>
 
-</html>
+<h2>書籍情報</h2>
+<%= @book.price %>
+
+<h2>書籍情報</h2>
+<%= @book.published_on.to_s %>

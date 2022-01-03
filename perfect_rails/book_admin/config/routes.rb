@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   delete "/books/:id" => "books#destroy"
 
   resources :publishers
-  resource :prolile, only: %i{show edit update}
+  resource :profile, only: %i{show edit update}
 
   # 下記のようにリソースの親子関係を設定することができる
   # resources :publishers do
