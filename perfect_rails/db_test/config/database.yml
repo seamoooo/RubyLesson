@@ -1,0 +1,50 @@
+# for sql lite
+# default: &default
+#   adapter: sqlite3
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   timeout: 5000
+
+# development:
+#   primary:
+#     <<: *default
+#     database: db/development.sqlite3
+#   sub:
+#     <<: *default
+#     database: db/development.sub.sqlite3
+#     migrations_paths: db/sub_migrate
+
+# test:
+#   <<: *default
+#   database: db/test.sqlite3
+
+# production:
+#   <<: *default
+#   database: db/production.sqlite3
+
+# for Mysql
+default: &default
+  adapter: mysql2
+  encoding: utf9mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  host: 127.0.0.1
+
+development:
+  primary:
+    <<: *default
+    database: db_sample_development
+    port: 33061
+  primary_replica:
+    <<: *default
+    database: db_sample_development
+    port: 33062
+    replica: true
+
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  database: db/production.sqlite3
