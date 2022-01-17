@@ -11,6 +11,12 @@
   %body
   %header
     .container
-      = link_to "AwesomeEvents", class: "navbar-brand"
+      = link_to "AwesomeEvent", root_path, class: "navbar-brand"
+      %ul.navbar-navbar
+        %li.nav-item
+         = link_to "githubでログイン", "/auth/github", class: "navbar-link", method: :post
     .container
-    = yield
+      - if flash.notice
+        .alert.alert-success
+          = flash.notice
+      = yield
