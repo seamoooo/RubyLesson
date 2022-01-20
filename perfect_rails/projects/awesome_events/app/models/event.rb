@@ -6,9 +6,14 @@ class Event < ApplicationRecord
   validates :content, length: { maximum: 2000 }, presence: true
   validates :start_at, presence: true
   validates :end_at, presence: true
-
   # 自作のメソッドのバリデーション時は単数系
   validate :start_at_should_before_end_at
+
+  # イベント編集用 ユーザーフラグ
+  def created_by?(user)
+    return false unless user
+    owner_id == user.id
+  end
 
   private
 
