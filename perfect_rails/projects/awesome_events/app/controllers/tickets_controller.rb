@@ -16,4 +16,11 @@ class TicketsController < ApplicationController
       redirect_to event, notice: "このイベントに参加しました"
     end
   end
+
+  def destroy
+    ticket = current_user.tickets.find_by!(event_id: params[:event_id])
+    # destroy!にすることにより、存在しないIDの場合はエラーが発生する
+    ticket.destroy!
+    redirect_to event_path(params[:event_id]), notice: "参加キャンセルしました。"
+  end
 end

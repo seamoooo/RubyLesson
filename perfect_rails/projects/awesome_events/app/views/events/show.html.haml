@@ -10,7 +10,9 @@
   = link_to "イベント編集画面へ", edit_event_path(@event), class: "goge"
   = link_to "イベント削除へ", event_path(@event), class: "goge", method: :delete, data: { confirm: "削除しますか？"}
 
-- if logged_in?
+- if @ticket
+  = link_to "キャンセルする", event_ticket_path(@event, @ticket), method: :delete, class: "delete"
+- elsif logged_in?
   %h3.mt-2 参加申し込み
   = form_with(model: @event.tickets.build, url: event_tickets_path(@event)) do |f|
     #errors
