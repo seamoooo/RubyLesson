@@ -20,3 +20,18 @@
       = f.button "送信", class:"btnbtnprimary"
 - else
   = link_to "参加する", new_event_ticket_path(@event), class: "goge"
+
+%h3.mt-2 主催者
+.card-body
+  = link_to(url_for_github(@event.owner), class: "card") do 
+    = image_tag @event.owner.image_url, width: 50, height: 50
+    = "@#{@event.owner.name}"
+
+%h3.mt-2 参加者
+.card-body
+- @tickets.each do |ticket|
+  %li.items
+    = link_to(url_for_github(ticket.user), class: "card") do
+      = image_tag ticket.user.image_url, width: 50, height: 50
+      = "@#{ticket.user.name}"
+    = ticket.commnent
