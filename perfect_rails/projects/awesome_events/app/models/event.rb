@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   # dependentを定義すると親オブジェクトの削除時に、関連のticketsも削除することができる
-  has_many :tickets dependent: :destroy
+  has_many :tickets, dependent: :destroy
   belongs_to :owner, class_name: "User"
 
   validates :name, length: { maximum: 50 }, presence: true
